@@ -2,7 +2,9 @@
 
 Project Euler programs.
 
-## What is this?
+![](https://projecteuler.net/profile/bergren2.png)
+
+## What Is This?
 
 I use this repository to track solutions I have come up with for [Project Euler
 problems](https://projecteuler.net/problems). They are kept in the `solutions`
