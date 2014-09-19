@@ -2,7 +2,7 @@
 
 Project Euler programs.
 
-![](https://projecteuler.net/profile/bergren2.png)
+![Project Euler Badge](https://projecteuler.net/profile/bergren2.png)
 
 ## What is this?
 
