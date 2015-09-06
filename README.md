@@ -13,11 +13,11 @@ directory and each file name matches the corresponding problem ID.
 I know this goes without saying, but **these are solutions**. You should really
 take a stab at the problems themselves before looking at this code.
 
-## Why the different languages? / What language are you using?
+## What language are you using?
 
 I originally intended to use Project Euler as a way to learn new languages. But
 after sitting on that strategy for some time and seeing how it worked as the
-problems became more difficult, I'm realizing I'm better off using one language
+problems became more difficult, I realized I'm better off using one language
 _really, really_ well and learnings its ins-and-outs.
 
 For this project, I'm sticking with Ruby. If you're interested in learning Ruby
