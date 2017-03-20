@@ -1,20 +1,24 @@
-class Problem4
-  def self.solve(d)
-    largest = 0
+class Problem4 < EulerProblem
+  def initialize number_of_digits
+    @number_of_digits = number_of_digits
+  end
 
-    (10**(d-1)...10**d).reverse_each do |i|
-      for j in i..10**d
+  def solution
+    largest = 0
+    lower_bound = 10**(@number_of_digits-1)
+    upper_bound = 10**@number_of_digits
+
+    (lower_bound...upper_bound).reverse_each do |i|
+      for j in i..upper_bound
         n = i * j
-        if palindromic? n and n > largest
-          largest = n
-        end
+        largest = n if palindromic? n and n > largest
       end
     end
 
-    return largest
+    largest
   end
 
-  private_class_method def self.palindromic? n
+  def palindromic? n
     s = n.to_s
     length = s.size
     for i in 0..(length / 2)

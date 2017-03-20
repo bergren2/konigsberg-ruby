@@ -1,17 +1,19 @@
-class Problem2
-  def self.solve()
+class Problem2 < EulerProblem
+  def initialize limit
+    @limit = limit
+  end
+
+  def solution
     a = 0
     b = 1
     sum = 0
 
-    while a + b < 4000000 do
+    while a + b < @limit do
       c = a + b
       a = b
       b = c
 
-      if c % 2 == 0
-        sum += c
-      end
+      sum += c if c % 2 == 0
     end
 
     sum

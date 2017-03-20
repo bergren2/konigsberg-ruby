@@ -1,8 +1,12 @@
-class Problem1
-  def self.solve(n)
+class Problem1 < EulerProblem
+  def initialize n
+    @n = n
+  end
+
+  def solution
     sum = 0
 
-    (1...n).each do |i|
+    (1...@n).each do |i|
       sum += i if i % 3 == 0 or i % 5 == 0
     end
 

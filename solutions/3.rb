@@ -1,9 +1,13 @@
-class Problem3
-  def self.solve(n)
+class Problem3 < EulerProblem
+  def initialize n
+    @n = n
+  end
+
+  def solution
     prime_factors = []
 
-    (2...Math.sqrt(n).ceil).each do |i|
-      if n % i == 0
+    (2...Math.sqrt(@n).ceil).each do |i|
+      if @n % i == 0
         is_prime = true # default
 
         prime_factors.each do |p|

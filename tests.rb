@@ -1,26 +1,29 @@
 require "minitest/autorun"
 require "minitest/pride"
 
+require "./assertions.rb"
+require "./lib/euler_project.rb"
+
 Dir["./solutions/*.rb"].each { |file| require file }
 
 class EulerTests < Minitest::Test
-  def test_problem1()
-    assert_equal(23, Problem1.solve(10))
-    assert_equal(233168, Problem1.solve(1000))
+  def test_problem1
+    assert_solution 23, Problem1.new(10)
+    assert_solution 233168, Problem1.new(1000)
   end
 
-  def test_problem2()
-    assert_equal(4613732, Problem2.solve())
+  def test_problem2
+    assert_solution 4613732, Problem2.new(4000000)
   end
 
-  def test_problem3()
-    assert_equal(29, Problem3.solve(13195))
-    assert_equal(6857, Problem3.solve(600851475143))
+  def test_problem3
+    assert_solution 29, Problem3.new(13195)
+    assert_solution 6857, Problem3.new(600851475143)
   end
 
-  def test_problem4()
-    assert_equal(9009, Problem4.solve(2))
-    assert_equal(906609, Problem4.solve(3))
+  def test_problem4
+    assert_solution 9009, Problem4.new(2)
+    assert_solution 906609, Problem4.new(3)
   end
 
   def test_problem5() skip end
