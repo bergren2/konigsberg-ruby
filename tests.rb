@@ -26,7 +26,11 @@ class EulerTests < Minitest::Test
     assert_solution 906609, Problem4.new(3)
   end
 
-  def test_problem5() skip end
+  def test_problem5
+    assert_solution 2520, Problem5.new(10)
+    assert_solution 232792560, Problem5.new(20)
+  end
+
   def test_problem6() skip end
   def test_problem7() skip end
   def test_problem8() skip end

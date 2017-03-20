@@ -1,31 +1,29 @@
-class Problem5
-  def self.solve()
+class Problem5 < EulerProblem
+  def initialize limit
+    @limit = limit
+  end
+
+  def solution
     primes = []
     lcm_factors = {}
 
-    limit = 20
-
     # populate primes
-    for n in 2..limit
+    for n in 2..@limit
       is_prime = true # default
 
       for i in 2..(n**0.5).floor
         if n % i == 0
           for p in primes
-            if i % p == 0
-              is_prime = false
-            end
+            is_prime = false if i % p == 0
           end
         end
       end
 
-      if is_prime
-        primes << n
-      end
+      primes << n if is_prime
     end
 
     # find LCM factors
-    for n in 1..limit
+    for n in 1..@limit
       x = n # working variable
 
       for p in primes
@@ -36,9 +34,7 @@ class Problem5
           e += 1
         end
 
-        if lcm_factors[p].nil? or lcm_factors[p] < e
-          lcm_factors[p] = e
-        end
+        lcm_factors[p] = e if lcm_factors[p].nil? or lcm_factors[p] < e
       end
     end
 
@@ -47,6 +43,6 @@ class Problem5
       answer = answer * key**value
     end
 
-    puts answer
+    answer
   end
 end
