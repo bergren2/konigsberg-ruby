@@ -18,7 +18,11 @@ class EulerTests < Minitest::Test
     assert_equal(6857, Problem3.solve(600851475143))
   end
 
-  def test_problem4() skip end
+  def test_problem4()
+    assert_equal(9009, Problem4.solve(2))
+    assert_equal(906609, Problem4.solve(3))
+  end
+
   def test_problem5() skip end
   def test_problem6() skip end
   def test_problem7() skip end
