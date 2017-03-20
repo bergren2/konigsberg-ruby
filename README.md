@@ -31,7 +31,3 @@ Since this is an ongoing project, I wanted to be able to safely refactor without
 needing to constantly refer to the Project Euler website. Hence, unit tests!
 
     $ ruby tests.rb
-
-## License
-
-See LICENSE for details.
