@@ -13,6 +13,7 @@ class EulerTests < Minitest::Test
   end
 
   def test_problem2
+    assert_solution 44, Problem2.new(90)
     assert_solution 4613732, Problem2.new(4000000)
   end
 
