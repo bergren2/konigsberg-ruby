@@ -1,7 +1,5 @@
 class Problem3
-  def self.solve()
-    n = 600851475143
-
+  def self.solve(n)
     prime_factors = []
 
     (2...Math.sqrt(n).ceil).each do |i|
@@ -16,6 +14,6 @@ class Problem3
       end
     end
 
-    puts prime_factors[-1]
+    prime_factors[-1]
   end
 end
