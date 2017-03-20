@@ -1,13 +1,17 @@
-class Problem6
-  def self.solve()
+class Problem6 < EulerProblem
+  def initialize limit
+    @limit = limit
+  end
+
+  def solution
     sum_of_squares = 0
     the_sum = 0
 
-    (1..100).each do |i|
+    (1..@limit).each do |i|
       sum_of_squares += i*i
       the_sum += i
     end
 
-    puts the_sum * the_sum - sum_of_squares
+    the_sum * the_sum - sum_of_squares
   end
 end
