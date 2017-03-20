@@ -1,7 +1,11 @@
-sum = 0
+class Problem1
+  def self.solve(n)
+    sum = 0
 
-(1...1000).each do |n|
-  sum += n if n % 3 == 0 or n % 5 == 0
+    (1...n).each do |i|
+      sum += i if i % 3 == 0 or i % 5 == 0
+    end
+
+    sum
+  end
 end
-
-puts sum
