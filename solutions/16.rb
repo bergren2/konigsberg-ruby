@@ -1,13 +1,17 @@
 require "cmath"
 
-n = 2**1000
+class Problem16
+  def self.solve()
+    n = 2**1000
 
-number_of_digits = CMath.log10 n
+    number_of_digits = CMath.log10 n
 
-sum = 0
+    sum = 0
 
-(0..number_of_digits).each do |i|
-  sum += n / 10**i % 10
+    (0..number_of_digits).each do |i|
+      sum += n / 10**i % 10
+    end
+
+    puts sum
+  end
 end
-
-puts sum

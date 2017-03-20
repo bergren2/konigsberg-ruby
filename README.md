@@ -25,6 +25,13 @@ as well, I highly recommend reading David A. Black's [The Well-Grounded
 Rubyist](http://www.manning.com/black3/) since it will give you the tools you
 need to tackle Project Euler problems.
 
+## Tests
+
+Since this is an ongoing project, I wanted to be able to safely refactor without
+needing to constantly refer to the Project Euler website. Hence, unit tests!
+
+    $ ruby tests.rb
+
 ## License
 
 See LICENSE for details.

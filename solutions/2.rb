@@ -1,15 +1,19 @@
-a = 0
-b = 1
-sum = 0
+class Problem2
+  def self.solve()
+    a = 0
+    b = 1
+    sum = 0
 
-while a + b < 4000000 do
-  c = a + b
-  a = b
-  b = c
+    while a + b < 4000000 do
+      c = a + b
+      a = b
+      b = c
 
-  if c % 2 == 0
-    sum += c
+      if c % 2 == 0
+        sum += c
+      end
+    end
+
+    sum
   end
 end
-
-puts sum

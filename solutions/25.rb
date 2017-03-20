@@ -1,14 +1,18 @@
-a = 0
-b = 1
-index = 2
-limit = 10**999
+class Problem25
+  def self.solve()
+    a = 0
+    b = 1
+    index = 2
+    limit = 10**999
 
-while a + b < limit do
-  c = a + b
-  a = b
-  b = c
+    while a + b < limit do
+      c = a + b
+      a = b
+      b = c
 
-  index += 1
+      index += 1
+    end
+
+    puts index
+  end
 end
-
-puts index
