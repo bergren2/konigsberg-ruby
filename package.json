@@ -1,0 +1,10 @@
+{
+  "name": "euler",
+  "version": "1.0.0",
+  "repository": "https://github.com/bergren2/euler.git",
+  "author": "Dan Bergren <dan@heymrbass.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "gulp-gh-pages": "^0.5.4"
+  }
+}
