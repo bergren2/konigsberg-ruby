@@ -47,3 +47,7 @@ their own READMEs to describe their setup.
 ### GitHub Pages
 
     $ gulp deploy
+
+For simplicity, the Gulp build script makes the assumption that
+everything on `master` is a valid solution -- this way it can count solution
+files without needing to run anything in each language.
