@@ -1,2 +1,8 @@
+# language specific
 scala/target/
+
+# third-party libraries
 node_modules/
+
+# build artifacts
+dist/
