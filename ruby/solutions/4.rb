@@ -1,4 +1,6 @@
-class Problem4 < EulerProblem
+class Problem4
+  include EulerSolvable
+
   def initialize number_of_digits
     @number_of_digits = number_of_digits
   end

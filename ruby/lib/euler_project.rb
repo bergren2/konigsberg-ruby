@@ -1,4 +1,4 @@
-class EulerProblem
+module EulerSolvable
   def solution() end
 
   def resource_path filename

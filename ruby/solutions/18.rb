@@ -1,4 +1,6 @@
-class Problem18 < EulerProblem
+class Problem18
+  include EulerSolvable
+
   def initialize(filename)
     @filename = filename
   end

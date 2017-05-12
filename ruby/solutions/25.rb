@@ -1,9 +1,15 @@
 class Problem25
-  def self.solve()
+  include EulerSolvable
+
+  def initialize(n)
+    @n = n
+  end
+
+  def solution
     a = 0
     b = 1
     index = 2
-    limit = 10**999
+    limit = 10**(@n-1)
 
     while a + b < limit do
       c = a + b
@@ -13,6 +19,6 @@ class Problem25
       index += 1
     end
 
-    puts index
+    index
   end
 end

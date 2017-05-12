@@ -63,7 +63,10 @@ class EulerTests < Minitest::Test
     assert_solution 648, Problem20.new(100)
   end
 
-  def test_problem25() skip end
+  def test_problem25
+    assert_solution 12, Problem25.new(3)
+    assert_solution 4782, Problem25.new(1000)
+  end
 
   def test_problem67
     assert_solution 7273, Problem67.new("mps100.txt")

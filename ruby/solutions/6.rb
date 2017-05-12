@@ -1,4 +1,6 @@
-class Problem6 < EulerProblem
+class Problem6
+  include EulerSolvable
+
   def initialize limit
     @limit = limit
   end

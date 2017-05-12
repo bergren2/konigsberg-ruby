@@ -1,4 +1,6 @@
-class Problem3 < EulerProblem
+class Problem3
+  include EulerSolvable
+
   def initialize n
     @n = n
   end
