@@ -1,4 +1,4 @@
-require 'minitest/assertions'
+require "minitest/assertions"
 
 module Minitest::Assertions
   def assert_solution solution, problem
