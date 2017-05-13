@@ -11,7 +11,7 @@ class Problem8
 
     File.open(resource_path("prob8.txt"), "r") do |file|
       file.each_line do |line|
-        line.chomp.each_char do |c| 
+        line.chomp.each_char do |c|
           n_array << c.to_i
         end
       end
