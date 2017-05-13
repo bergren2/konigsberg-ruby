@@ -1,29 +1,28 @@
 class Problem7
-  def self.solve()
+  include EulerSolvable
+
+  def initialize term
+    @term = term
+  end
+
+  def solution
     primes = []
-    n = 2 # init
+    n = 2 # init number to test
 
-    while primes.size < 10001
+    while primes.size < @term
       is_prime = true # default
-
-      for i in 2..(n**0.5).floor
-        if n % i == 0
-          for p in primes
-            if i % p == 0
-              is_prime = false
-            end
-          end
+      for p in primes
+        if n % p == 0
+          is_prime = false
+          break
         end
       end
 
-      if is_prime
-        primes << n
-        print "Primes found: #{primes.size}\r"
-      end
+      primes << n if is_prime
 
       n += 1
     end
 
-    puts "\nAnswer: #{primes[-1]}"
+    primes[-1]
   end
 end
