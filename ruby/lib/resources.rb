@@ -4,16 +4,15 @@ class SieveOfAtkin
   end
 
   def run
-    primes = { 2 => true, 3 => true }
-
-    bound = (@limit**0.5).floor
-
     # init primes list
+    primes = { 2 => true, 3 => true }
     for n in 5...@limit
       primes[n] = false
     end
 
     # Sieve of Atkin
+    bound = (@limit**0.5).floor
+
     for i in 1..bound
       for j in 1..bound
         n = 4 * i**2 + j**2
