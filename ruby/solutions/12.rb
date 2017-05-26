@@ -1,24 +1,26 @@
 class Problem12
-  @prev_triangle_nums = {}
+  include EulerSolvable
 
-  def self.solve()
+  def initialize(n)
+    @n = n
+    @prev_triangle_nums = {}
+  end
 
-
+  def solution
     # for n > 1, does n have an even number of factors?
     # if so, we only have to look for root n pairs
 
     i = 1
     factors_count = 0
-    while factors_count <= 500
+    while factors_count <= @n
       t = triangle_number i
       f = factors(t)
-      printf "%d: %s\n", t, f
 
       # update
       i += 1
       factors_count = f.size
     end
-    # print trinagle_number(i - 1) #lazy
+    t
   end
 
   def triangle_number n
