@@ -1,10 +1,6 @@
 class Problem11
   include EulerSolvable
 
-  def initialize()
-    #
-  end
-
   def solution
     max = 0
     length = 4
