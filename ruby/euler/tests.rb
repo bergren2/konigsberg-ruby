@@ -2,10 +2,11 @@ require "minitest/autorun"
 require "minitest/parallel"
 require "minitest/pride"
 
-require "./assertions.rb"
-require "./lib/euler_project.rb"
+require_relative "../assertions.rb"
+require_relative "euler_project.rb"
 
-Dir["./solutions/*.rb"].each { |file| require file }
+sol_glob = File.join(__dir__, "/solutions/*.rb")
+Dir[sol_glob].each { |file| require file }
 
 class EulerTests < Minitest::Test
   parallelize_me!
