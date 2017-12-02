@@ -8,7 +8,7 @@
 Solutions to various problems on the Internet, including:
 
 - [Project Euler](https://projecteuler.net/)
-- [Advent of Code]()
+- [Advent of Code](http://adventofcode.com/)
 - [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/)
 
 ## What is this?
