@@ -16,7 +16,7 @@ class Year2017Day1
 
     if @part == 1 then
       jump = 1
-    else
+    else # assume part 2
       jump = @n.size / 2
     end
 
