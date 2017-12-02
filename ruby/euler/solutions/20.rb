@@ -14,6 +14,6 @@ class Problem20
       number = number / 10
     end
 
-    sum += number
+    sum + number # add the last number and return
   end
 end

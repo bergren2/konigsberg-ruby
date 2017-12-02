@@ -32,7 +32,7 @@ class Node
   end
 
   def next
-    if @val % 2 == 0
+    if @val.even?
       return Node.new(@val / 2)
     else
       return Node.new(3 * @val + 1)

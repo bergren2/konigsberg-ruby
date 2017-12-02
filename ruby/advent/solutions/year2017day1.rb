@@ -14,7 +14,7 @@ class Year2017Day1
   def solution
     sum = 0
 
-    if @part == 1 then
+    if @part == 1
       jump = 1
     else # assume part 2
       jump = @n.size / 2

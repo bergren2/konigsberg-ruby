@@ -15,7 +15,7 @@ class Problem2
       a = b
       b = c
 
-      sum += c if c % 2 == 0
+      sum += c if c.even?
     end
 
     sum
