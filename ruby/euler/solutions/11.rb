@@ -38,30 +38,21 @@ class Problem11
   def product i, j, direction
     p = 1
 
-    case direction
-    when :horizontal
-      if i + @length <= @n_array.size
-        for k in 0...@length
-            p *= @n_array[i + k][j]
-        end
+    if direction == :horizontal and i + @length <= @n_array.size
+      for k in 0...@length
+          p *= @n_array[i + k][j]
       end
-    when :vertical
-      if j + @length <= @n_array.size
-        for k in 0...@length
-          p *= @n_array[i][j + k]
-        end
+    elsif direction == :vertical and j + @length <= @n_array.size
+      for k in 0...@length
+        p *= @n_array[i][j + k]
       end
-    when :slash
-      if i - @length >= -1 and j + @length <= @n_array.size
-        for k in 0...@length
-          p *= @n_array[i - k][j + k]
-        end
+    elsif direction == :slash and i - @length >= -1 and j + @length <= @n_array.size
+      for k in 0...@length
+        p *= @n_array[i - k][j + k]
       end
-    when :backslash
-      if i + @length <= @n_array.size and j + @length <= @n_array.size
-        for k in 0...@length
-          p *= @n_array[i + k][j + k]
-        end
+    elsif direction == :backslash and i + @length <= @n_array.size and j + @length <= @n_array.size
+      for k in 0...@length
+        p *= @n_array[i + k][j + k]
       end
     end
 
