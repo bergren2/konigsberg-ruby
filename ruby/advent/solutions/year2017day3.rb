@@ -1,10 +1,12 @@
+require "./lib/cartesian.rb"
+
 class Year2017Day3
   include AdventSolvable
 
   def initialize input, part
     @input = input
     @part = part
-    @cart = Cart.new # pad so index lines up with number
+    @cart = CartesianCoordinateSystem.new
 
     @direction = :right # start moving right
     #
@@ -28,13 +30,13 @@ class Year2017Day3
   # 21  22  23  24  25  26
   def solution
     if @part == 1
-      (2..@input).each do |n|
+      (@input-1).times {
         # figure out value
         a = @cart.adjacent(@x, @y)
         @cart[@x, @y] = a.min + 1
 
         update_direction
-      end
+      }
     else # assume part 2
       while @cart.last <= @input
         a = @cart.surrounding(@x, @y)
@@ -79,51 +81,5 @@ class Year2017Day3
         @x += 1
       end
     end
-  end
-end
-
-class Cart
-  def initialize
-    @cart = {}
-    @last_x = nil
-    @last_y = nil
-  end
-
-  def [](x, y)
-    if @cart.key? x and @cart[x].key? y
-      @cart[x][y]
-    else
-      nil
-    end
-  end
-
-  def []=(x, y, val)
-    @cart[x] = {} unless @cart.key? x
-    @cart[x][y] = val
-
-    @last_x = x
-    @last_y = y
-  end
-
-  def adjacent(x, y)
-    [
-      self[x+1, y],
-      self[x-1, y],
-      self[x, y+1],
-      self[x, y-1]
-    ].compact
-  end
-
-  def surrounding(x, y)
-    adjacent(x, y) + [
-      self[x+1, y+1],
-      self[x+1, y-1],
-      self[x-1, y+1],
-      self[x-1, y-1]
-    ].compact
-  end
-
-  def last
-    @cart[@last_x][@last_y] unless @last_x.nil? or @last_y.nil?
   end
 end

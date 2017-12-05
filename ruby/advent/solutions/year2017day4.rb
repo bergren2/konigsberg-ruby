@@ -5,7 +5,7 @@ class Year2017Day4
     @filename = filename
 
     if part == 1
-      @line_transform = lambda { |l| l.split }
+      @line_transform = ->(l) { l.split }
     else # assume part 2
       @line_transform = lambda do |l|
         l.split.map { |w| w.split("").sort.join("") }
