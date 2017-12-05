@@ -3,22 +3,22 @@ class Year2017Day4
 
   def initialize filename, part
     @filename = filename
-    @part = part
+
+    if part == 1
+      @line_transform = lambda { |l| l.split }
+    else # assume part 2
+      @line_transform = lambda do |l|
+        l.split.map { |w| w.split("").sort.join("") }
+      end
+    end
   end
 
   def solution
     count = 0
 
-    if @part == 1
-      File.readlines(resource_path(@filename)).each do |line|
-        words = line.split
-        count += 1 if words.size == words.uniq.size
-      end
-    else # assume part 2
-      File.readlines(resource_path(@filename)).each do |line|
-        words = line.split.map { |w| w.split("").sort.join("") }
-        count += 1 if words.size == words.uniq.size
-      end
+    File.readlines(resource_path(@filename)).each do |line|
+      words = @line_transform.call line
+      count += 1 if words.size == words.uniq.size
     end
 
     count
