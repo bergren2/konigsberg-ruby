@@ -1,10 +1,23 @@
 class Year2017Day3
   include AdventSolvable
 
-  def initialize start, part
-    @start = start
+  def initialize input, part
+    @input = input
     @part = part
     @cart = Cart.new # pad so index lines up with number
+
+    @direction = :right # start moving right
+    #
+    # current position
+    @x = 1
+    @y = 0
+
+    # seed
+    if @part == 1
+      @cart[0, 0] = 0
+    else # assume part 2
+      @cart[0, 0] = 1
+    end
   end
 
   # 36  35  34  33  32  31
@@ -14,76 +27,58 @@ class Year2017Day3
   # 20   7   8   9  10  27
   # 21  22  23  24  25  26
   def solution
-    direction = :right # start moving right
-
     if @part == 1
-      @cart[0][0] = 0 # seed
-      x = 1
-      y = 0
+      (2..@input).each do |n|
+        # figure out value
+        a = @cart.adjacent(@x, @y)
+        @cart[@x, @y] = a.min + 1
 
-      (2..@start).each do |n|
-        # if moving right and number above, use that number
-        # if moving right and no number above, use number on left and move up
-        case direction
-        when :right
-          # figure out value
-          a = [@cart[x-1][y] + 1]
-          a << @cart[x][y+1] + 1 unless @cart[x][y+1].nil?
-          @cart[x][y] = a.min
-
-          # where to next?
-          if @cart[x][y+1]
-            x += 1
-          else
-            direction = :up
-            y += 1
-          end
-        when :up
-          # figure out value
-          a = [@cart[x][y-1] + 1]
-          a << @cart[x-1][y] + 1 unless @cart[x-1][y].nil?
-          @cart[x][y] = a.min
-
-          # where to next?
-          if @cart[x-1][y]
-            y += 1
-          else
-            direction = :left
-            x -= 1
-          end
-        when :left
-          # figure out value
-          a = [@cart[x+1][y] + 1]
-          a << @cart[x][y-1] + 1 unless @cart[x][y-1].nil?
-          @cart[x][y] = a.min
-
-          # where to next?
-          if @cart[x][y-1]
-            x -= 1
-          else
-            direction = :down
-            y -= 1
-          end
-        when :down
-          # figure out value
-          a = [@cart[x][y+1] + 1]
-          a << @cart[x+1][y] + 1 unless @cart[x+1][y].nil?
-          @cart[x][y] = a.min
-
-          # where to next?
-          if @cart[x+1][y]
-            y -= 1
-          else
-            direction = :right
-            x += 1
-          end
-        end
+        update_direction
       end
     else # assume part 2
-      @cart[0][0] = 1 # seed
+      while @cart.last <= @input
+        a = @cart.surrounding(@x, @y)
+        @cart[@x, @y] = a.inject(0, :+)
+
+        update_direction
+      end
     end
 
     @cart.last
+  end
+
+  def update_direction
+    # where to next?
+    case @direction
+    when :right
+      if @cart[@x, @y+1]
+        @x += 1
+      else
+        @direction = :up
+        @y += 1
+      end
+    when :up
+      if @cart[@x-1, @y]
+        @y += 1
+      else
+        @direction = :left
+        @x -= 1
+      end
+    when :left
+      if @cart[@x, @y-1]
+        @x -= 1
+      else
+        @direction = :down
+        @y -= 1
+      end
+    when :down
+      if @cart[@x+1, @y]
+        @y -= 1
+      else
+        @direction = :right
+        @x += 1
+      end
+    end
   end
 end
 
@@ -97,43 +92,41 @@ class Cart
     @last_y = nil
   end
 
-  def [](x)
-    if @cart.key? x
-      @cart[x]
+  def [](x, y)
+    if @cart.key? x and @cart[x].key? y
+      @cart[x][y]
     else
-      @cart[x] = Col.new(self, x)
+      nil
     end
   end
 
-  def last
-    @cart[@last_x][@last_y] unless @last_x.nil? or @last_y.nil?
-  end
+  def []=(x, y, val)
+    @cart[x] = {} unless @cart.key? x
+    @cart[x][y] = val
 
-  # omg
-  def set_last x, y
     @last_x = x
     @last_y = y
   end
 
-  class Col
-    def initialize cart, x
-      @cart = cart
-      @x = x
-      @col = {}
-    end
+  def adjacent(x, y)
+    [
+      self[x+1, y],
+      self[x-1, y],
+      self[x, y+1],
+      self[x, y-1]
+    ].compact
+  end
 
-    def [](y)
-      if @col.key? y
-        @col[y]
-      else
-        nil
-      end
-    end
+  def surrounding(x, y)
+    adjacent(x, y) + [
+      self[x+1, y+1],
+      self[x+1, y-1],
+      self[x-1, y+1],
+      self[x-1, y-1]
+    ].compact
+  end
 
-    def []=(key, val)
-      @col[key] = val
-
-      @cart.set_last @x, key
-    end
+  def last
+    @cart[@last_x][@last_y] unless @last_x.nil? or @last_y.nil?
   end
 end

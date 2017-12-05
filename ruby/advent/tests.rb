@@ -58,6 +58,6 @@ class AdventTests < Minitest::Test
     assert_solution 23, Year2017Day3.new(20, 2)
     assert_solution 54, Year2017Day3.new(50, 2)
     assert_solution 122, Year2017Day3.new(100, 2)
-    assert_solution nil, Year2017Day3.new(289326, 2)
+    assert_solution 295229, Year2017Day3.new(289326, 2)
   end
 end
