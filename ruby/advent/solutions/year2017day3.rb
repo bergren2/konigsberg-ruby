@@ -82,9 +82,6 @@ class Year2017Day3
   end
 end
 
-# c = Cart.new
-# c[1][2] = 4
-
 class Cart
   def initialize
     @cart = {}
