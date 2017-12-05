@@ -9,9 +9,16 @@ class Year2017Day4
   def solution
     count = 0
 
-    File.readlines(resource_path(@filename)).each do |line|
-      words = line.split
-      count += 1 if words.size == words.uniq.size
+    if @part == 1
+      File.readlines(resource_path(@filename)).each do |line|
+        words = line.split
+        count += 1 if words.size == words.uniq.size
+      end
+    else # assume part 2
+      File.readlines(resource_path(@filename)).each do |line|
+        words = line.split.map { |w| w.split("").sort.join("") }
+        count += 1 if words.size == words.uniq.size
+      end
     end
 
     count
