@@ -11,15 +11,13 @@ Dir[sol_glob].each { |file| require file }
 class AdventTests < Minitest::Test
   parallelize_me!
 
-  def test_year2017day1part1
+  def test_year2017day1
     assert_solution 3, Year2017Day1.new("1122", 1)
     assert_solution 4, Year2017Day1.new("1111", 1)
     assert_solution 0, Year2017Day1.new("1234", 1)
     assert_solution 9, Year2017Day1.new("91212129", 1)
     assert_solution 1089, Year2017Day1.new("year2017day1.txt", 1)
-  end
 
-  def test_year2017day1part2
     assert_solution 6, Year2017Day1.new("1212", 2)
     assert_solution 0, Year2017Day1.new("1221", 2)
     assert_solution 4, Year2017Day1.new("123425", 2)
@@ -28,17 +26,15 @@ class AdventTests < Minitest::Test
     assert_solution 1156, Year2017Day1.new("year2017day1.txt", 2)
   end
 
-  def test_year2017day2part1
+  def test_year2017day2
     assert_solution 18, Year2017Day2.new("year2017day2sheet1.txt", 1)
     assert_solution 32121, Year2017Day2.new("year2017day2sheet2.txt", 1)
-  end
 
-  def test_year2017day2part2
     assert_solution 9, Year2017Day2.new("year2017day2sheet3.txt", 2)
     assert_solution 197, Year2017Day2.new("year2017day2sheet2.txt", 2)
   end
 
-  def test_year2017day3part1
+  def test_year2017day3
     assert_solution 0, Year2017Day3.new(1, 1)
     assert_solution 2, Year2017Day3.new(9, 1)
     assert_solution 3, Year2017Day3.new(12, 1)
@@ -47,9 +43,7 @@ class AdventTests < Minitest::Test
     assert_solution 5, Year2017Day3.new(36, 1)
     assert_solution 31, Year2017Day3.new(1024, 1)
     assert_solution 419, Year2017Day3.new(289326, 1)
-  end
 
-  def test_year2017day3part2
     assert_solution 1, Year2017Day3.new(0, 2)
     assert_solution 2, Year2017Day3.new(1, 2)
     assert_solution 10, Year2017Day3.new(5, 2)
