@@ -1,6 +1,4 @@
 class CartesianCoordinateSystem
-  include Enumerable
-
   def initialize
     @hash = {}
     @last_x = nil
