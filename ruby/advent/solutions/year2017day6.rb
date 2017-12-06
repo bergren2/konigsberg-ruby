@@ -3,6 +3,7 @@ class Year2017Day6
 
   def initialize allocation, part
     @allocation = allocation
+    @part = part
   end
 
   def solution
@@ -11,7 +12,7 @@ class Year2017Day6
     seen = []
 
     loop do
-      seen << @allocation.to_s
+      seen << @allocation.to_s # so lazy
 
       dist = @allocation.max
       dist_i = @allocation.index(dist)
@@ -25,6 +26,10 @@ class Year2017Day6
       break if seen.include? @allocation.to_s
     end
 
-    cycles
+    if @part == 1
+      cycles
+    else # assume part 2
+      seen.size - seen.index(@allocation.to_s)
+    end
   end
 end
