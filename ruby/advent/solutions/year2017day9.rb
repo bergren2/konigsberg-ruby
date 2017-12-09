@@ -2,6 +2,7 @@ class Year2017Day9
   include AdventSolvable
 
   def initialize file_or_stream, part
+    @part = part
     if file_or_stream.end_with? ".txt"
       @parser = Parser.new File.new(resource_path(file_or_stream)).each_char
     else
@@ -11,17 +12,22 @@ class Year2017Day9
 
   def solution
     @parser.parse
-    @parser.score
+    if @part == 1
+      @parser.score
+    else # assume part 2
+      @parser.garbage_count
+    end
   end
 end
 
 class Parser
-  attr_reader :score
+  attr_reader :garbage_count, :score
 
   def initialize enumerable
     @enumerable = enumerable
     @in_garbage = false
     @ignore_next = false
+    @garbage_count = 0
     @score = 0
     @nest_level = 0
   end
@@ -31,20 +37,20 @@ class Parser
       if in_garbage?
         case c
         when ">"
-          end_garbage if in_garbage? and not ignore?
+          end_garbage if not ignore?
         when "!"
-          ignore_next if in_garbage? and not ignore?
+          ignore_next unless ignore?
         else
-          nil unless in_garbage? and ignore?
+          @garbage_count += 1 unless ignore?
         end
       else
         case c
         when "{"
-          create_group unless in_garbage?
+          create_group
         when "}"
-          end_group unless in_garbage?
+          end_group
         when "<"
-          start_garbage unless in_garbage?
+          start_garbage
         end
       end
     end
