@@ -9,7 +9,11 @@ class Year2017Day8
 
   def solution
     @instructions.each { |i| i.execute(@registers) }
-    @registers.max
+    if @part == 1
+      @registers.max
+    else # assume part 2
+      @registers.highest_val
+    end
   end
 end
 
@@ -71,8 +75,11 @@ class Instruction
 end
 
 class Registers
+  attr_reader :highest_val
+
   def initialize
     @r = {}
+    @highest_val = 0
   end
 
   def [](key)
@@ -84,6 +91,7 @@ class Registers
   end
 
   def []=(key, val)
+    @highest_val = val if val > @highest_val
     @r[key] = val
   end
 
