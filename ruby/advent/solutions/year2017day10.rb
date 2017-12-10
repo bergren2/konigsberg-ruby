@@ -1,9 +1,13 @@
 class Year2017Day10
   include AdventSolvable
 
-  def initialize size, inputs, part
-    @inputs = inputs.split(/,\s*/).map { |i| i.to_i }
-    @ring = Ring.new size
+  def initialize input, part
+    if part == 1
+      @inputs = input.split(/,\s*/).map { |i| i.to_i }
+    else
+      @inputs = input.each_byte.to_a
+    end
+    @ring = Ring.new(256)
     @current_pos = 0
     @skip_size = 0
   end
