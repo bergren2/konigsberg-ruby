@@ -132,4 +132,9 @@ class AdventTests < Minitest::Test
     assert_solution 10, Year2017Day9.new("{<{o\"i!a,<{i<a>}", 2)
     assert_solution 6569, Year2017Day9.new("year2017day9.txt", 2)
   end
+
+  def test_year2017day10
+    assert_solution 12, Year2017Day10.new(5, "3, 4, 1, 5", 1)
+    assert_solution 38415, Year2017Day10.new(256, "189,1,111,246,254,2,0,120,215,93,255,50,84,15,94,62", 1)
+  end
 end
