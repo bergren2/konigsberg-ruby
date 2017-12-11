@@ -142,4 +142,12 @@ class AdventTests < Minitest::Test
     assert_solution "63960835bcdc130f0b66d7ff4f6a5a8e", Year2017Day10.new("1,2,4", 2)
     assert_solution "9de8846431eef262be78f590e39a4848", Year2017Day10.new("189,1,111,246,254,2,0,120,215,93,255,50,84,15,94,62", 2)
   end
+
+  def test_year2017day11
+    assert_solution 3, Year2017Day11.new("ne,ne,ne", 1)
+    assert_solution 0, Year2017Day11.new("ne,ne,sw,sw", 1)
+    assert_solution 2, Year2017Day11.new("ne,ne,s,s", 1)
+    assert_solution 3, Year2017Day11.new("se,sw,se,sw,sw", 1)
+    assert_solution nil, Year2017Day11.new("year2017day11.txt", 1)
+  end
 end
