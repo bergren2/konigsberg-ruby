@@ -148,6 +148,8 @@ class AdventTests < Minitest::Test
     assert_solution 0, Year2017Day11.new("ne,ne,sw,sw", 1)
     assert_solution 2, Year2017Day11.new("ne,ne,s,s", 1)
     assert_solution 3, Year2017Day11.new("se,sw,se,sw,sw", 1)
-    assert_solution nil, Year2017Day11.new("year2017day11.txt", 1)
+    assert_solution 784, Year2017Day11.new("year2017day11.txt", 1)
+
+    assert_solution 1558, Year2017Day11.new("year2017day11.txt", 2)
   end
 end

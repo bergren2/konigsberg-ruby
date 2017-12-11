@@ -2,6 +2,7 @@ class Year2017Day11
   include AdventSolvable
 
   def initialize string_or_filename, part
+    @part = part
     if string_or_filename.end_with? ".txt"
       @path = File.new(resource_path(string_or_filename)).read.strip.split(",").map { |s| s.to_sym }
     else
@@ -11,8 +12,21 @@ class Year2017Day11
 
   def solution
     grid = HexGrid.new
-    @path.each { |d|  grid.move d }
-    grid.distance_to_center
+    furthest = 0
+
+    @path.each do |d|
+      grid.move d
+
+      # I hate this
+      d = grid.distance_to_center
+      furthest = [d, furthest].max
+    end
+
+    if @part == 1
+      grid.distance_to_center
+    else # assume part 2
+      furthest
+    end
   end
 end
 
