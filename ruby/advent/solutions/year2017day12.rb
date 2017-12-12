@@ -5,6 +5,7 @@ class Year2017Day12
 
   def initialize filename, part
     @edges = File.new(resource_path(filename)).each_line.map { |l| l.strip }
+    @part = part
   end
 
   def solution
@@ -27,7 +28,10 @@ class Year2017Day12
       sets << this_set
     end
 
-    p sets.map { |s| s.size }.reduce(:+)
-    sets.select { |s| s.include? 0 }.first.size
+    if @part == 1
+      sets.select { |s| s.include? 0 }.first.size
+    else # assume part 2
+      sets.size
+    end
   end
 end
