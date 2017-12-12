@@ -152,4 +152,9 @@ class AdventTests < Minitest::Test
 
     assert_solution 1558, Year2017Day11.new("year2017day11.txt", 2)
   end
+
+  def test_year2017day12
+    assert_solution 6, Year2017Day12.new("year2017day12_1.txt", 1)
+    assert_solution 113, Year2017Day12.new("year2017day12_2.txt", 1)
+  end
 end
