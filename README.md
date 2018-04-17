@@ -1,9 +1,6 @@
 # Königsberg
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b175a79b521d434ca686f097a4d5d3e8)](https://www.codacy.com/app/basstheorychaos/konigsberg?utm_source=github.com&utm_medium=referral&utm_content=bergren2/konigsberg&utm_campaign=badger)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbergren2%2Fkonigsberg.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbergren2%2Fkonigsberg?ref=badge_shield)
-
-
 [![Project Euler Badge](https://projecteuler.net/profile/bergren2.png)](https://projecteuler.net/profile/bergren2.png)
 
 Solutions to various problems on the Internet, including:
@@ -37,7 +34,3 @@ translation from one language to another, but it often means I can become
 familiar with a new language without needing to first understand the math, and
 it also can sometimes lead to using a particular language's feature to solve a
 problem in a different way.
-
-
-## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbergren2%2Fkonigsberg.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbergren2%2Fkonigsberg?ref=badge_large)
