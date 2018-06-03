@@ -1,6 +1,8 @@
-# Königsberg
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b175a79b521d434ca686f097a4d5d3e8)](https://www.codacy.com/app/basstheorychaos/konigsberg?utm_source=github.com&utm_medium=referral&utm_content=bergren2/konigsberg&utm_campaign=badger)
+
+# Königsberg
+
 [![Project Euler Badge](https://projecteuler.net/profile/bergren2.png)](https://projecteuler.net/profile/bergren2.png)
 
 Solutions to various problems on the Internet, including:
