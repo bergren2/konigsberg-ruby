@@ -8,6 +8,7 @@ Solutions to various problems on the Internet, including:
 - [Project Euler](https://projecteuler.net/)
 - [Advent of Code](http://adventofcode.com/)
 - [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/)
+- [Wolfram Challenges](https://challenges.wolfram.com)
 
 ## What is this?
 
