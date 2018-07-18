@@ -1,5 +1,7 @@
 require "rake/testtask"
 
+task default: ["test:advent", "test:euler"]
+
 namespace :test do
   Rake::TestTask.new(:advent) do |t|
     t.description = "Run Advent of Code tests"
