@@ -1,39 +1,20 @@
+# Ruby
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b175a79b521d434ca686f097a4d5d3e8)](https://www.codacy.com/app/basstheorychaos/konigsberg?utm_source=github.com&utm_medium=referral&utm_content=bergren2/konigsberg&utm_campaign=badger)
+I started solving problem with Ruby because it was one of the first languages I
+learned and took seriously. If you're interested in learning Ruby as well, I
+highly recommend reading David A. Black's [The Well-Grounded
+Rubyist](http://www.manning.com/black3/) since it will give you the tools you
+need to tackle problems.
 
-# Königsberg
+## Tests
 
-[![Project Euler Badge](https://projecteuler.net/profile/bergren2.png)](https://projecteuler.net/profile/bergren2.png)
+    $ rake test:advent
 
-Solutions to various problems on the Internet, including:
+If you want to run a specific test, try
 
-- [Project Euler](https://projecteuler.net/)
-- [Advent of Code](http://adventofcode.com/)
-- [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/)
-- [Wolfram Challenges](https://challenges.wolfram.com)
+    $ rake test:advent TEST=advent/tests/year2017day1_test
 
-## What is this?
-
-I use this repository to track solutions I have come up with for various
-programming puzzle sites. Solutions are sorted into different directories based
-on language, and then further separated by site and problem.  If I've solved
-several problems with a particular language, there will usually be advanced
-features such as test suites and libraries.
-
-I know this goes without saying, but **these are solutions**. You should really
-take a stab at the problems themselves before looking at this code.
-
-## What language(s) are you using?
-
-I originally intended to use Project Euler as a way to learn new languages.
-After sitting on that strategy for some time and seeing how it worked as the
-problems became more difficult, I realized I'm better off using one language
-_really, really_ well and learnings its ins-and-outs -- hence, most of the
-solutions here are first implemented in Ruby.
-
-Now that I have a few more problems under my belt, I have started writing
-solutions in other languages. Most of the time this starts out as a straight
-translation from one language to another, but it often means I can become
-familiar with a new language without needing to first understand the math, and
-it also can sometimes lead to using a particular language's feature to solve a
-problem in a different way.
+The workflow for adding new problems is to use TDD with a simplified version of
+the problem and a `nil` placeholder for the site-verifiable version. After using
+the Project Euler website to verify (or if the problem was already solved in a
+different language) this placeholder can be replaced with a real test.
