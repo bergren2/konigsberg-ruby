@@ -1,4 +1,8 @@
-# Ruby
+[![Build Status](https://travis-ci.com/bergren2/konigsberg-ruby.svg?branch=master)](https://travis-ci.com/bergren2/konigsberg-ruby)
+
+# Königsberg - Ruby
+
+[Home Repo](https://github.com/bergren2/konigsberg)
 
 I started solving problem with Ruby because it was one of the first languages I
 learned and took seriously. If you're interested in learning Ruby as well, I
