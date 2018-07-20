@@ -1,4 +1,4 @@
-require "./lib/cartesian.rb"
+require "cartesian"
 
 class Year2017Day3
   include AdventSolvable

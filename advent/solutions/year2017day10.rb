@@ -1,4 +1,4 @@
-require "./lib/ring"
+require "ring"
 
 class Year2017Day10
   include AdventSolvable
