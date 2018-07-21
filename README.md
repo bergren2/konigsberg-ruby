@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/bergren2/konigsberg-ruby.svg?branch=master)](https://travis-ci.com/bergren2/konigsberg-ruby)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a8961f8c4c224c90bf8aaa837a7694e0)](https://www.codacy.com/app/basstheorychaos/konigsberg-ruby?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bergren2/konigsberg-ruby&amp;utm_campaign=Badge_Grade)
-[![Coverage Status](https://coveralls.io/repos/github/bergren2/konigsberg-ruby/badge.svg?branch=master)](https://coveralls.io/github/bergren2/konigsberg-ruby?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/bergren2/konigsberg-ruby/badge.svg)](https://coveralls.io/github/bergren2/konigsberg-ruby)
 
 # Königsberg - Ruby
 
