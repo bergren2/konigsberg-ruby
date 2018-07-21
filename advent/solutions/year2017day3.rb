@@ -1,3 +1,4 @@
+require "advent_solvable"
 require "cartesian"
 
 class Year2017Day3

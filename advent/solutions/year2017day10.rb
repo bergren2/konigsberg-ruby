@@ -1,3 +1,4 @@
+require "advent_solvable"
 require "ring"
 
 class Year2017Day10

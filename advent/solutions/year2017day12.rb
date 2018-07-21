@@ -1,3 +1,4 @@
+require "advent_solvable"
 require "set"
 
 class Year2017Day12

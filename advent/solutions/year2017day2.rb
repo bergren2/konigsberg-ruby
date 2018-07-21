@@ -1,3 +1,5 @@
+require "advent_solvable"
+
 class Year2017Day2
   include AdventSolvable
 

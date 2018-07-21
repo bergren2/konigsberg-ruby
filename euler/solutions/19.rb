@@ -1,3 +1,4 @@
+require "euler_solvable"
 require "date"
 
 class Problem19
