@@ -1,4 +1,5 @@
-require "./lib/prime_number_sieves.rb"
+require "euler_solvable"
+require "prime_number_sieves"
 
 class Problem10
   include EulerSolvable

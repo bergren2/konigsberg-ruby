@@ -1,3 +1,5 @@
+require "euler_solvable"
+
 class Problem14
   def self.solve()
     start = Node.new 999999

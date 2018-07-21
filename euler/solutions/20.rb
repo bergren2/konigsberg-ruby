@@ -1,3 +1,5 @@
+require "euler_solvable"
+
 class Problem20
   include EulerSolvable
 

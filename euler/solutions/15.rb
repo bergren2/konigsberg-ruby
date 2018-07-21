@@ -1,3 +1,5 @@
+require "euler_solvable"
+
 class Problem15
   def self.solve()
     # here we form a basis of vertices that uses that diagonal

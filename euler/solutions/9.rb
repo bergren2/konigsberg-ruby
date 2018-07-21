@@ -1,3 +1,5 @@
+require "euler_solvable"
+
 class Problem9
   def self.solve()
     n = 1000
