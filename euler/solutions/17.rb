@@ -26,8 +26,7 @@ class Problem17
 
   AND_WORD = 3
 
-
-  def initialize limit
+  def initialize(limit)
     @limit = limit
   end
 
@@ -35,50 +34,50 @@ class Problem17
     # Calculate and sum the letter counts
     sum = 0
 
-    # NOTE: some hardcoding has been done given our range.
-    # I'm okay with this because expanding the range easily introduces
-    # cases that aren't covered by this code.
     (1..@limit).each do |n|
-      # calculate places
-      ones = n % 10
-      tens = n / 10 % 10
-      hundreds = n / 100 % 10
+      sum += letter_count(n)
+    end
 
-      # determine which counts to add
-      if tens == 1
-        case ones
-        when 0
-          sum += TEN
-        when 1, 2
-          sum += ELEVEN_OR_TWELVE
-        when 5, 6
-          sum += FIFTEEN_OR_SIXTEEN
-        when 3, 4, 8, 9
-          sum += THIRTEEN_OR_FOURTEEN_OR_EIGHTEEN_OR_NINETEEN
-        when 7
-          sum += SEVENTEEN
-        end
-      else
-        case tens
-        when 4, 5, 6
-          sum += FORTY_OR_FIFTY_OR_SIXTY
-        when 2, 3, 8, 9
-          sum += TWENTY_OR_THIRTY_OR_EIGHTY_OR_NINETY
-        when 7
-          sum += SEVENTY
-        end
+    sum
+  end
 
-        case ones
-        when 1, 2, 6
-          sum += ONE_OR_TWO_OR_SIX
-        when 4, 5, 9
-          sum += FOUR_OR_FIVE_OR_NINE
-        when 3, 7, 8
-          sum += THREE_OR_SEVEN_OR_EIGHT
-        end
+  private
+
+  # NOTE: some hardcoding has been done given our range.
+  # I'm okay with this because expanding the range easily introduces
+  # cases that aren't covered by this code.
+  # rubocop:disable AbcSize, CyclomaticComplexity, MethodLength, PerceivedComplexity
+  def letter_count(number)
+    # calculate digits
+    ones = number % 10
+    tens = number / 10 % 10
+    hundreds = number / 100 % 10
+    thousands = number / 1000 % 10
+
+    if tens == 1
+      case ones
+      when 0
+        sum += TEN
+      when 1, 2
+        sum += ELEVEN_OR_TWELVE
+      when 5, 6
+        sum += FIFTEEN_OR_SIXTEEN
+      when 3, 4, 8, 9
+        sum += THIRTEEN_OR_FOURTEEN_OR_EIGHTEEN_OR_NINETEEN
+      when 7
+        sum += SEVENTEEN
+      end
+    else
+      case tens
+      when 4, 5, 6
+        sum += FORTY_OR_FIFTY_OR_SIXTY
+      when 2, 3, 8, 9
+        sum += TWENTY_OR_THIRTY_OR_EIGHTY_OR_NINETY
+      when 7
+        sum += SEVENTY
       end
 
-      case hundreds
+      case ones
       when 1, 2, 6
         sum += ONE_OR_TWO_OR_SIX
       when 4, 5, 9
@@ -86,15 +85,26 @@ class Problem17
       when 3, 7, 8
         sum += THREE_OR_SEVEN_OR_EIGHT
       end
-
-      if hundreds != 0
-        sum += HUNDRED
-        sum += AND_WORD if tens + ones > 0
-      end
-
-      sum += ONE_OR_TWO_OR_SIX + THOUSAND if n == 1000 # hardcoded given our range
     end
+
+    case hundreds
+    when 1, 2, 6
+      sum += ONE_OR_TWO_OR_SIX
+    when 4, 5, 9
+      sum += FOUR_OR_FIVE_OR_NINE
+    when 3, 7, 8
+      sum += THREE_OR_SEVEN_OR_EIGHT
+    end
+
+    if hundreds != 0
+      sum += HUNDRED
+      sum += AND_WORD if (tens + ones).positive?
+    end
+
+    sum += ONE_OR_TWO_OR_SIX + THOUSAND if thousands == 1
 
     sum
   end
+
+  # rubocop:enable AbcSize, CyclomaticComplexity, MethodLength, PerceivedComplexity
 end
