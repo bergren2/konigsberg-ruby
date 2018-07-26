@@ -3,7 +3,7 @@ require "advent_solvable"
 class Year2017Day7
   include AdventSolvable
 
-  def initialize filename, part
+  def initialize(filename, part)
     @discs = {}
     @part = part
 
@@ -14,7 +14,7 @@ class Year2017Day7
       weight = /\((\d+)\)/.match(words[1])[1].to_i
 
       holding = []
-      (3..words.size-1).each do |i|
+      (3..words.size - 1).each do |i|
         holding << /(\w+),?/.match(words[i])[1]
       end
 
@@ -24,7 +24,6 @@ class Year2017Day7
       @discs[holder][:weight] = weight
       @discs[holder][:holding] = holding
 
-
       holding.each do |program|
         @discs[program] = {} unless @discs.key? program
         @discs[program][:holder] = holder
@@ -33,7 +32,7 @@ class Year2017Day7
   end
 
   def solution
-    root = @discs.select { |key, v| !v.key? :holder }.keys.first
+    root = @discs.reject { |_key, v| v.key? :holder }.keys.first
     if @part == 1
       root
     else # assume part 2
@@ -44,7 +43,7 @@ class Year2017Day7
     end
   end
 
-  def weight_above program
+  def weight_above(program)
     # yay caching
     if @discs[program].key? :weight_above
       @discs[program][:weight_above]
@@ -58,11 +57,11 @@ class Year2017Day7
     end
   end
 
-  def total_weight program
+  def total_weight(program)
     weight_above(program) + @discs[program][:weight]
   end
 
-  def unbalanced_above program
+  def unbalanced_above(program)
     if @discs[program].key? :holding
       holding = @discs[program][:holding]
       min = holding.min_by { |p| total_weight(p) }
@@ -76,12 +75,12 @@ class Year2017Day7
         program
       end
     else
-       program
+      program
     end
   end
 
-  def siblings program
+  def siblings(program)
     holder = @discs[program][:holder]
-    @discs[holder][:holding].select { |p| p != program }
+    @discs[holder][:holding].reject { |p| p == program }
   end
 end
