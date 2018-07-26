@@ -3,7 +3,7 @@ require "advent_solvable"
 class Year2017Day8
   include AdventSolvable
 
-  def initialize filename, part
+  def initialize(filename, part)
     @part = part
     @instructions = File.readlines(resource_path(filename)).map { |l| Instruction.new(l) }
     @registers = Registers.new
@@ -20,14 +20,14 @@ class Year2017Day8
 end
 
 class Instruction
-  def initialize string
+  def initialize(string)
     m = /(\w+) (\w+) ([-\d]+) if (\w+) ([!<>=]+) ([-\d]+)/.match string
 
     @lambda_instruction = create_instruction(m[1].to_sym, m[2].to_sym, m[3].to_i)
     @lambda_condition = create_condition(m[4].to_sym, m[5].to_sym, m[6].to_i)
   end
 
-  def create_instruction register_to_change, change_direction, change_amount
+  def create_instruction(register_to_change, change_direction, change_amount)
     case change_direction
     when :inc
       return lambda do |registers|
@@ -41,7 +41,7 @@ class Instruction
     raise "Can't create instructions from #{register_to_change}, #{change_direction}, #{change_amount}"
   end
 
-  def create_condition condition_register, comparison, condition_number
+  def create_condition(condition_register, comparison, condition_number)
     case comparison
     when :==
       return lambda do |registers|
@@ -71,7 +71,7 @@ class Instruction
     raise "Can't create condition from #{condition_register}, #{comparison}, #{condition_number}"
   end
 
-  def execute registers
+  def execute(registers)
     @lambda_instruction.call(registers) if @lambda_condition.call(registers)
   end
 end
@@ -98,6 +98,6 @@ class Registers
   end
 
   def max
-    @r.max_by{ |key, val| val }[1]
+    @r.max_by { |_key, val| val }[1]
   end
 end
