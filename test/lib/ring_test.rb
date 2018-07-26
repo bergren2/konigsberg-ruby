@@ -23,7 +23,7 @@ class RingTest < Minitest::Test
   def test_to_s
     # Arrange
     a1 = [0, 1, 2, 3, 4]
-    a2 = ["hey", "what", "is", "up"]
+    a2 = %w[hey what is up]
     r1 = Ring.new(a1)
     r2 = Ring.new(a2)
 
