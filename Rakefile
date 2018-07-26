@@ -23,4 +23,10 @@ namespace :test do
     t.warning = true
     t.test_files = FileList["test/euler/**/*_test.rb"]
   end
+  Rake::TestTask.new(:lib) do |t|
+    t.description = "Run lib tests"
+    t.libs = ["test", "lib"]
+    t.warning = true
+    t.test_files = FileList["test/lib/**/*_test.rb"]
+  end
 end
