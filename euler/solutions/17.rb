@@ -46,7 +46,6 @@ class Problem17
   # NOTE: some hardcoding has been done given our range.
   # I'm okay with this because expanding the range easily introduces
   # cases that aren't covered by this code.
-  # rubocop:disable AbcSize, CyclomaticComplexity, MethodLength, PerceivedComplexity
   def letter_count(number)
     # calculate digits
     ones = number % 10
@@ -105,6 +104,4 @@ class Problem17
 
     sum
   end
-
-  # rubocop:enable AbcSize, CyclomaticComplexity, MethodLength, PerceivedComplexity
 end
