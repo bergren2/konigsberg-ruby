@@ -47,6 +47,8 @@ class Problem17
   # I'm okay with this because expanding the range easily introduces
   # cases that aren't covered by this code.
   def letter_count(number)
+    sum = 0
+
     # calculate digits
     ones = number % 10
     tens = number / 10 % 10
