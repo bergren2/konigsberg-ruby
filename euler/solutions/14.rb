@@ -1,8 +1,14 @@
 require "euler_solvable"
 
 class Problem14
-  def self.solve()
-    start = Node.new 999999
+  include EulerSolvable
+
+  def initialize limit
+    @limit = limit
+  end
+
+  def solution
+    start = Node.new(@limit - 1)
     longest_chain_start = start.val
     longest_chain_length = 1
 
@@ -18,11 +24,12 @@ class Problem14
 
       # see if chain is new longest
       if length > longest_chain_length
-        print "New longest chain starts with #{i} and is #{length} long!\n"
         longest_chain_length = length
         longest_chain_start = i
       end
     end
+
+    longest_chain_start
   end
 end
 
