@@ -4,7 +4,7 @@ require "cmath"
 class Problem16
   include EulerSolvable
 
-  def initialize exponent
+  def initialize(exponent)
     @exponent = exponent
   end
 

@@ -6,6 +6,6 @@ class Problem17Test < Minitest::Test
 
   def test_solution
     assert_solution 19, Problem17.new(5)
-    assert_solution 21124, Problem17.new(1000)
+    assert_solution 21_124, Problem17.new(1000)
   end
 end

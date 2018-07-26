@@ -4,7 +4,7 @@ require "collatz"
 class Problem14
   include EulerSolvable
 
-  def initialize limit
+  def initialize(limit)
     @limit = limit
   end
 
@@ -18,7 +18,7 @@ class Problem14
       # generate chain
       node = CollatzNode.new i
       length = 1
-      while (node.val != 1) do
+      while node.val != 1
         length += 1
         node = node.next
       end

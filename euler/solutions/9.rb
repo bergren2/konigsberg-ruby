@@ -3,7 +3,7 @@ require "euler_solvable"
 class Problem9
   include EulerSolvable
 
-  def initialize sum
+  def initialize(sum)
     @sum = sum
   end
 
@@ -13,7 +13,7 @@ class Problem9
     (1...n).each do |a|
       (a + 1...n).each do |b|
         (b + 1...n).each do |c|
-          return a * b * c if a*a + b*b == c*c and a + b + c == n
+          return a * b * c if a * a + b * b == c * c && a + b + c == n
         end
       end
     end
