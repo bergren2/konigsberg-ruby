@@ -1,4 +1,6 @@
+require "codacy-coverage"
 require "coveralls"
+Codacy::Reporter.start
 Coveralls.wear!
 
 require "minitest/autorun"
