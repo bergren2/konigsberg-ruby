@@ -2,6 +2,6 @@
 
 source "https://rubygems.org"
 
+gem "coveralls", require: false
 gem "minitest"
 gem "rake"
-gem "coveralls", require: false
