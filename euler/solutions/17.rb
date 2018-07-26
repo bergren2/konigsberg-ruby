@@ -3,34 +3,35 @@ require "euler_solvable"
 class Problem17
   include EulerSolvable
 
+  # Letter counts of the number words
+
+  # NOTE: I combined same counts into single variables to
+  # make the summation logic below easier to read.
+  ONE_OR_TWO_OR_SIX = 3
+  FOUR_OR_FIVE_OR_NINE = 4
+  THREE_OR_SEVEN_OR_EIGHT = 5
+
+  TEN = 3
+  ELEVEN_OR_TWELVE = 6
+  FIFTEEN_OR_SIXTEEN = 7
+  THIRTEEN_OR_FOURTEEN_OR_EIGHTEEN_OR_NINETEEN = 8
+  SEVENTEEN = 9
+
+  FORTY_OR_FIFTY_OR_SIXTY = 5
+  TWENTY_OR_THIRTY_OR_EIGHTY_OR_NINETY = 6
+  SEVENTY = 7
+
+  HUNDRED = 7
+  THOUSAND = 8
+
+  AND_WORD = 3
+
+
   def initialize limit
     @limit = limit
   end
 
   def solution
-    # Letter counts of the number words
-
-    # NOTE: I combined same counts into single variables to
-    # make the summation logic below easier to read.
-    one_or_two_or_six = 3
-    four_or_five_or_nine = 4
-    three_or_seven_eight = 5
-
-    ten = 3
-    eleven_or_twelve = 6
-    fifteen_or_sixteen = 7
-    thirteen_or_fourteen_or_eighteen_or_nineteen = 8
-    seventeen = 9
-
-    forty_or_fifty_or_sixty = 5
-    twenty_or_thirty_or_eighty_or_ninety = 6
-    seventy = 7
-
-    hundred = 7
-    thousand = 8
-
-    and_word = 3
-
     # Calculate and sum the letter counts
     sum = 0
 
@@ -47,51 +48,51 @@ class Problem17
       if tens == 1
         case ones
         when 0
-          sum += ten
+          sum += TEN
         when 1, 2
-          sum += eleven_or_twelve
+          sum += ELEVEN_OR_TWELVE
         when 5, 6
-          sum += fifteen_or_sixteen
+          sum += FIFTEEN_OR_SIXTEEN
         when 3, 4, 8, 9
-          sum += thirteen_or_fourteen_or_eighteen_or_nineteen
+          sum += THIRTEEN_OR_FOURTEEN_OR_EIGHTEEN_OR_NINETEEN
         when 7
-          sum += seventeen
+          sum += SEVENTEEN
         end
       else
         case tens
         when 4, 5, 6
-          sum += forty_or_fifty_or_sixty
+          sum += FORTY_OR_FIFTY_OR_SIXTY
         when 2, 3, 8, 9
-          sum += twenty_or_thirty_or_eighty_or_ninety
+          sum += TWENTY_OR_THIRTY_OR_EIGHTY_OR_NINETY
         when 7
-          sum += seventy
+          sum += SEVENTY
         end
 
         case ones
         when 1, 2, 6
-          sum += one_or_two_or_six
+          sum += ONE_OR_TWO_OR_SIX
         when 4, 5, 9
-          sum += four_or_five_or_nine
+          sum += FOUR_OR_FIVE_OR_NINE
         when 3, 7, 8
-          sum += three_or_seven_eight
+          sum += THREE_OR_SEVEN_OR_EIGHT
         end
       end
 
       case hundreds
       when 1, 2, 6
-        sum += one_or_two_or_six
+        sum += ONE_OR_TWO_OR_SIX
       when 4, 5, 9
-        sum += four_or_five_or_nine
+        sum += FOUR_OR_FIVE_OR_NINE
       when 3, 7, 8
-        sum += three_or_seven_eight
+        sum += THREE_OR_SEVEN_OR_EIGHT
       end
 
       if hundreds != 0
-        sum += hundred
-        sum += and_word if tens + ones > 0
+        sum += HUNDRED
+        sum += AND_WORD if tens + ones > 0
       end
 
-      sum += one_or_two_or_six + thousand if n == 1000 # hardcoded given our range
+      sum += ONE_OR_TWO_OR_SIX + THOUSAND if n == 1000 # hardcoded given our range
     end
 
     sum
