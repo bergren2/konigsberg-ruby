@@ -5,6 +5,7 @@ class Problem15Test < Minitest::Test
   parallelize_me!
 
   def test_solution
-    skip
+    assert_solution 6, Problem15.new(2)
+    assert_solution 137846528820, Problem15.new(20)
   end
 end
