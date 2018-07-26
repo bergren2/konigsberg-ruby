@@ -3,8 +3,8 @@ require "advent_solvable"
 class Year2017Day13
   include AdventSolvable
 
-  def initialize filename, part
-    @layers = Hash[File.new(resource_path(filename)).each_line.map { |l| l.split(": ").map { |n| n.to_i } }]
+  def initialize(filename, part)
+    @layers = Hash[File.new(resource_path(filename)).each_line.map { |l| l.split(": ").map(&:to_i) }]
     @part = part
   end
 
@@ -17,9 +17,7 @@ class Year2017Day13
       (0..max).each do |t|
         # calc scan level in layer t, starting at 0
         next unless @layers[t]
-        if scan_depth(t, @layers[t]) == 0
-          sev += @layers[t] * t
-        end
+        sev += @layers[t] * t if scan_depth(t, @layers[t]).zero?
       end
 
       sev
@@ -28,7 +26,7 @@ class Year2017Day13
     end
   end
 
-  def scan_depth time, range
+  def scan_depth(time, range)
     unfolded_range = 2 * (range - 1)
     d = time % unfolded_range
     if d > range
