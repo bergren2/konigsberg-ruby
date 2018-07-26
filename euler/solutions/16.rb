@@ -2,8 +2,14 @@ require "euler_solvable"
 require "cmath"
 
 class Problem16
-  def self.solve()
-    n = 2**1000
+  include EulerSolvable
+
+  def initialize exponent
+    @exponent = exponent
+  end
+
+  def solution
+    n = 2**@exponent
 
     number_of_digits = CMath.log10 n
 
@@ -13,6 +19,6 @@ class Problem16
       sum += n / 10**i % 10
     end
 
-    puts sum
+    sum
   end
 end
