@@ -1,5 +1,13 @@
+require "euler_solvable"
+
 class Problem17
-  def self.solve()
+  include EulerSolvable
+
+  def initialize limit
+    @limit = limit
+  end
+
+  def solution
     # Letter counts of the number words
 
     # NOTE: I combined same counts into single variables to
@@ -29,7 +37,7 @@ class Problem17
     # NOTE: some hardcoding has been done given our range.
     # I'm okay with this because expanding the range easily introduces
     # cases that aren't covered by this code.
-    (1..1000).each do |n|
+    (1..@limit).each do |n|
       # calculate places
       ones = n % 10
       tens = n / 10 % 10
@@ -86,6 +94,6 @@ class Problem17
       sum += one_or_two_or_six + thousand if n == 1000 # hardcoded given our range
     end
 
-    puts sum
+    sum
   end
 end
