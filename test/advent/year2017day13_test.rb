@@ -11,6 +11,6 @@ class Year2017Day13Test < Minitest::Test
 
   def test_part2
     assert_solution 10, Year2017Day13.new("year2017day13_1.txt", 2)
-    assert_solution 3823370, Year2017Day13.new("year2017day13_2.txt", 2)
+    assert_solution 3_823_370, Year2017Day13.new("year2017day13_2.txt", 2)
   end
 end
