@@ -10,29 +10,46 @@ class Year2017Day13
 
   def solution
     if @part == 1
-      max = @layers.keys.max
-      sev = 0
-
-      # iterate time
-      (0..max).each do |t|
-        # calc scan level in layer t, starting at 0
-        next unless @layers[t]
-        sev += @layers[t] * t if scan_depth(t, @layers[t]).zero?
-      end
-
-      sev
+      calc_cost
     else # assume part 2
-      #
+      delay = 1
+      found = false
+      last_layer = @layers.keys.max
+
+      until found
+        @layers.keys.each do |t|
+          # calc scan level in layer t
+          break if scan_depth(t, @layers[t], delay).zero?
+          return delay if t == last_layer
+        end
+
+        delay += 1
+      end
     end
   end
 
-  def scan_depth(time, range)
-    unfolded_range = 2 * (range - 1)
-    d = time % unfolded_range
+  def calc_cost(delay = 0)
+    sev = 0
+    # iterate time
+    @layers.keys.each do |t|
+      # calc scan level in layer t
+      sev += t * @layers[t] if scan_depth(t, @layers[t], delay).zero?
+    end
+
+    sev
+  end
+
+  def scan_depth(time, range, delay)
+    d = (time + delay) % unfolded(range)
+
     if d > range
-      unfolded_range - d
+      unfolded(range) - d
     else
       d
     end
+  end
+
+  def unfolded(range)
+    2 * (range - 1)
   end
 end
