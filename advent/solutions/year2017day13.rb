@@ -12,7 +12,7 @@ class Year2017Day13
     if @part == 1
       sev = 0
       # iterate time
-      @layers.keys.each do |t|
+      @layers.each_key do |t|
         # calc scan level in layer t
         sev += t * @layers[t] if scan_depth(t, @layers[t]).zero?
       end
@@ -24,7 +24,7 @@ class Year2017Day13
       last_layer = @layers.keys.max
 
       until found
-        @layers.keys.each do |t|
+        @layers.each_key do |t|
           # calc scan level in layer t
           break if scan_depth(t, @layers[t], delay).zero?
           return delay if t == last_layer
