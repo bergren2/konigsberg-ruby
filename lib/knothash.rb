@@ -3,8 +3,8 @@ require "ring"
 class KnotHash
   attr_accessor :val
 
-  def initialize(inputs)
-    @ring = KnotHashRing.new(inputs)
+  def initialize(input)
+    @ring = KnotHashRing.new(input.each_byte.to_a + [17, 31, 73, 47, 23])
     @val = run_hash
   end
 

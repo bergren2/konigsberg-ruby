@@ -1,4 +1,5 @@
 require "advent_solvable"
+require "knothash"
 
 class Year2017Day14
   include AdventSolvable

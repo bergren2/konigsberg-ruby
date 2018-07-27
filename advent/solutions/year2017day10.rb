@@ -8,7 +8,7 @@ class Year2017Day10
     if part == 1
       @ring = KnotHashRing.new input.split(/,\s*/).map(&:to_i)
     else
-      @knothash = KnotHash.new(input.each_byte.to_a + [17, 31, 73, 47, 23])
+      @knothash = KnotHash.new input
     end
 
     @part = part
