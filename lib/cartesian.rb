@@ -39,5 +39,9 @@ class CartesianCoordinateSystem
   def last
     self[@last_x, @last_y]
   end
+
+  def values
+    @hash.values.map(&:values).flatten
+  end
 end
 # rubocop:enable Naming/UncommunicativeMethodParamName
