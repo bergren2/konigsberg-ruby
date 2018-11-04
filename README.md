@@ -2,9 +2,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a8961f8c4c224c90bf8aaa837a7694e0)](https://www.codacy.com/app/basstheorychaos/konigsberg-ruby?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bergren2/konigsberg-ruby&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://coveralls.io/repos/github/bergren2/konigsberg-ruby/badge.svg)](https://coveralls.io/github/bergren2/konigsberg-ruby)
 
-# Königsberg - Ruby
-
-[Home Repo](https://github.com/bergren2/konigsberg)
+# [Königsberg](https://github.com/bergren2/konigsberg) - Ruby
 
 I started solving problem with Ruby because it was one of the first languages I
 learned and took seriously. If you're interested in learning Ruby as well, I
