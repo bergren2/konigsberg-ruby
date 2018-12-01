@@ -16,9 +16,20 @@ class Year2018Day1
   end
 
   def solution
-    current_freq = 0
     if @part == 1 then
       return @changes.sum
+    else # part 2
+      i = -1
+      result = 0
+      seen_once = Set.new
+
+      until seen_once.include?(result) do
+        seen_once << result
+        i += 1
+        result += @changes[i % @changes.length]
+      end
+
+      return result
     end
   end
 end
