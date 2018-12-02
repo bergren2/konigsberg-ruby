@@ -10,5 +10,7 @@ class Year2018Day2Test < Minitest::Test
   end
 
   def test_part2
+    assert_solution "fgij", Year2018Day2.new("year2018day2_3.txt", 2)
+    assert_solution "rmyxgdlihczskunpfijqcebtv", Year2018Day2.new("year2018day2_2.txt", 2)
   end
 end
