@@ -14,9 +14,9 @@ class Year2018Day2
       threes = 0
 
       @box_ids.each do |id|
-        count_hash = id.scan(/\w/).inject(Hash.new(0)){ |h, c| h[c] += 1; h }
-        twos += 1 if count_hash.has_value? 2
-        threes += 1 if count_hash.has_value? 3
+        count_hash = id.scan(/\w/).each_with_object(Hash.new(0)) { |c, h| h[c] += 1 }
+        twos += 1 if count_hash.value? 2
+        threes += 1 if count_hash.value? 3
       end
 
       twos * threes
