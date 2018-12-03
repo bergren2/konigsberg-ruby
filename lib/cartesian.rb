@@ -44,6 +44,6 @@ class CartesianCoordinateSystem
   end
 
   def values
-    @hash.values.flatten.map(&:values).flatten
+    @hash.values.flatten(1).map(&:values).flatten(1)
   end
 end

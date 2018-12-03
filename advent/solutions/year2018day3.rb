@@ -10,22 +10,22 @@ class Year2018Day3
   end
 
   def solution
-    if @part == 1
-      cart = CartesianCoordinateSystem.new
+    cart = CartesianCoordinateSystem.new
 
-      @claims.each do |c|
-        (c.left...c.left+c.width).each do |x|
-          (c.top...c.top+c.height).each do |y|
-            cart[x, y] = if cart[x, y]
-                           cart[x, y] + 1
-                         else
-                           1
-                         end
-          end
+    @claims.each do |c|
+      (c.left...c.left+c.width).each do |x|
+        (c.top...c.top+c.height).each do |y|
+          cart[x, y] = if cart[x, y]
+                         cart[x, y] << c
+                       else
+                         [c]
+                       end
         end
       end
+    end
 
-      cart.values.count { |v| v > 1 }
+    if @part == 1
+      cart.values.count { |a| a.size > 1 }
     else # part 2
     end
   end
