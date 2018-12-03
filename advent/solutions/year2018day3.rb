@@ -27,11 +27,17 @@ class Year2018Day3
     if @part == 1
       cart.values.count { |a| a.size > 1 }
     else # part 2
+      squares = cart.values.select { |a| a.size == 1 }.flatten
+      @claims.each do |c|
+        return c.id if c.area == squares.count { |d| c.id == d.id }
+      end
     end
   end
 end
 
 class Claim
+  include Comparable
+
   attr_reader :id, :left, :top, :width, :height
 
   REGEX = /^#(\d+)\s+@\s+(\d+),(\d+):\s+(\d+)x(\d+)$/
@@ -48,7 +54,15 @@ class Claim
     end
   end
 
+  def area
+    @width * @height
+  end
+
   def to_s
     "##{@id} @ #{@left},#{@top}: #{@width}x#{@height}"
+  end
+
+  def <=>(other)
+    self.id <=> other.id
   end
 end
