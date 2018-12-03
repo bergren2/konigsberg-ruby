@@ -27,10 +27,9 @@ class Year2018Day3
     if @part == 1
       cart.values.count { |a| a.size > 1 }
     else # part 2
-      squares = cart.values.select { |a| a.size == 1 }.flatten
-      @claims.each do |c|
-        return c.id if c.area == squares.count { |d| c.id == d.id }
-      end
+      cart.values.select { |a| a.size == 1 }.flatten # find coordinates with only one claim
+          .group_by(&:id).find { |id, claims| claims.first.area == claims.size }
+          .first
     end
   end
 end
