@@ -35,8 +35,6 @@ class Year2018Day3
 end
 
 class Claim
-  include Comparable
-
   attr_reader :id, :left, :top, :width, :height
 
   REGEX = /^#(\d+)\s+@\s+(\d+),(\d+):\s+(\d+)x(\d+)$/
@@ -55,13 +53,5 @@ class Claim
 
   def area
     @width * @height
-  end
-
-  def to_s
-    "##{@id} @ #{@left},#{@top}: #{@width}x#{@height}"
-  end
-
-  def <=>(other)
-    self.id <=> other.id
   end
 end
