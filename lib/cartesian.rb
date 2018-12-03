@@ -42,4 +42,8 @@ class CartesianCoordinateSystem
   def last
     self[@last_x, @last_y]
   end
+
+  def values
+    @hash.values.flatten.map(&:values).flatten
+  end
 end
