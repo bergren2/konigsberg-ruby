@@ -41,13 +41,15 @@ class Claim
 
   # Example claim: #1 @ 565,109: 14x24
   def initialize(string)
-    if REGEX.match?(string)
-      m = REGEX.match(string)
+    m = REGEX.match(string)
+    if m
       @id = m[1].to_i
       @left = m[2].to_i
       @top = m[3].to_i
       @width = m[4].to_i
       @height = m[5].to_i
+    else
+      raise ArgumentError
     end
   end
 
