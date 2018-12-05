@@ -10,27 +10,29 @@ class Year2018Day4
   end
 
   def solution
-    if @part == 1
-      guards = []
-      guard_records = @records.slice_before(&:guard)
+    guards = []
+    guard_records = @records.slice_before(&:guard)
 
-      guard_records.each do |records|
-        # first record is guard starting shift
-        id = records.slice!(0).guard
-        existing_guard = guards.find { |g| g.id == id }
-        guard = existing_guard || Guard.new(id)
-        guards << guard unless existing_guard
+    guard_records.each do |records|
+      # first record is guard starting shift
+      id = records.slice!(0).guard
+      existing_guard = guards.find { |g| g.id == id }
+      guard = existing_guard || Guard.new(id)
+      guards << guard unless existing_guard
 
-        # every next pairs of records are sleeps and wakes
-        records.each_slice(2) do |a|
-          guard.add_sleep(a[0].timestamp, a[0].timestamp.minute...a[1].timestamp.minute)
-        end
+      # every next pairs of records are sleeps and wakes
+      records.each_slice(2) do |a|
+        guard.add_sleep(a[0].timestamp, a[0].timestamp.minute...a[1].timestamp.minute)
       end
-
-      g = guards.max_by(&:minutes_asleep)
-      g.id * g.minute_most_asleep
-    else # part 2
     end
+
+    if @part == 1
+      g = guards.max_by(&:minutes_asleep)
+    else # part 2
+      g = guards.max_by(&:most_snoozes_in_a_minute)
+    end
+
+    g.id * g.minute_most_asleep
   end
 end
 
@@ -88,8 +90,23 @@ class Guard
     @sleeping.values.flatten.map(&:size).reduce(:+)
   end
 
+  def most_snoozes_in_a_minute
+    return 0 if @sleeping.empty?
+    sleepy_minute_and_count[1]
+  end
+
   def minute_most_asleep
     return 0 if @sleeping.empty?
+    sleepy_minute_and_count[0]
+  end
+
+  def ==(other)
+    self.id == other.id
+  end
+
+  private
+
+  def sleepy_minute_and_count
     count = Hash.new(0)
 
     @sleeping.each do |_, ranges|
@@ -100,10 +117,6 @@ class Guard
       end
     end
 
-    count.max_by { |_, value| value }[0]
-  end
-
-  def ==(other)
-    self.id == other.id
+    count.max_by { |_, value| value }
   end
 end
