@@ -8,28 +8,24 @@ class Year2018Day5
 
     m = /^.+\.txt$/.match(polymer_or_filename)
     @polymer = if m
-                 File.open(resource_path(polymer_or_filename), &:readline).strip
+                 Polymer.new File.open(resource_path(polymer_or_filename), &:readline).strip
                else
-                 polymer_or_filename
+                 Polymer.new polymer_or_filename
                end
   end
 
   def solution
     if @part == 1
-      polymer = nil
-      new_polymer = @polymer
+      @polymer.react!
 
-      until new_polymer == polymer
-        polymer = new_polymer
-        new_polymer = react(polymer)
-      end
-
-      new_polymer.size
+      @polymer.size
     else # part 2
     end
   end
 
   # TODO this is too slow, need to use a data structure
+  # try a doubly-linked list and then find reactions and then target
+  # them one at a time, scanning outward from past reactions
   def react(polymer, offset = false)
     new_polymer = []
 
@@ -42,5 +38,35 @@ class Year2018Day5
     end
 
     new_polymer.reduce(:+) || ""
+  end
+end
+
+class Polymer
+  def initialize(string)
+    @string = string
+  end
+
+  def size
+    @string.size
+  end
+
+  def react!
+    i = 0 # starting index
+    old_size = nil
+    while i < size
+      if (i-1 >= 0) && reactable?(@string[i], @string[i-1])
+        @string.slice!(i-1, 2)
+        i = i-1
+      elsif (i+1 < size) && reactable?(@string[i], @string[i+1])
+        @string.slice!(i, 2)
+      else
+        i += 1
+      end
+    end
+  end
+
+  private
+  def reactable?(a, b)
+    a.ord + 32 == b.ord || a.ord - 32 == b.ord
   end
 end
