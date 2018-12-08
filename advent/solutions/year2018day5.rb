@@ -20,6 +20,7 @@ class Year2018Day5
 
       @polymer.size
     else # part 2
+      @polymer.letters.map{ |l| Polymer.new(@polymer.string.tr(l + l.upcase, "")).react!.size }.min
     end
   end
 
@@ -42,12 +43,18 @@ class Year2018Day5
 end
 
 class Polymer
+  attr_reader :string
+
   def initialize(string)
     @string = string
   end
 
   def size
     @string.size
+  end
+
+  def letters
+    @string.downcase.each_char.uniq
   end
 
   def react!
@@ -63,6 +70,8 @@ class Polymer
         i += 1
       end
     end
+
+    self
   end
 
   private
