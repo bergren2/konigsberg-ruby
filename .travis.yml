@@ -1,8 +1,0 @@
-language: ruby
-cache:
-  - bundler
-branches:
-  only:
-    - master
-notifications:
-  email: false
