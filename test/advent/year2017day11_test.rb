@@ -15,4 +15,10 @@ class Year2017Day11Test < Minitest::Test
   def test_part2
     assert_solution 1558, Year2017Day11.new("year2017day11.txt", 2)
   end
+
+  def test_exceptions
+    assert_raises RuntimeError do
+      assert_solution nil, Year2017Day11.new("not a direction", 1)
+    end
+  end
 end
