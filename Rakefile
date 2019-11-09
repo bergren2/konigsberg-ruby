@@ -1,4 +1,3 @@
-require "coveralls/rake/task"
 require "rake/testtask"
 
 task default: "test:all"
@@ -31,5 +30,3 @@ namespace :test do
     t.test_files = FileList["test/lib/**/*_test.rb"]
   end
 end
-
-Coveralls::RakeTask.new
