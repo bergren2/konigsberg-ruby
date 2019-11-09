@@ -19,7 +19,6 @@ class Year2017Day7
       end
 
       # create doubly-linked tree
-
       @discs[holder] = {} unless @discs.key? holder
       @discs[holder][:weight] = weight
       @discs[holder][:holding] = holding
@@ -36,7 +35,7 @@ class Year2017Day7
     if @part == 1
       root
     else # assume part 2
-      unbalanced = unbalanced_above root
+      unbalanced = find_unbalanced_above root
       sib = siblings(unbalanced).first
 
       total_weight(sib) - weight_above(unbalanced)
@@ -61,20 +60,17 @@ class Year2017Day7
     weight_above(program) + @discs[program][:weight]
   end
 
-  def unbalanced_above(program)
-    if @discs[program].key? :holding
-      holding = @discs[program][:holding]
-      min = holding.min_by { |p| total_weight(p) }
-      max = holding.max_by { |p| total_weight(p) }
+  def find_unbalanced_above(program)
+    holding = @discs[program][:holding]
+    min = holding.min_by { |p| total_weight(p) }
+    max = holding.max_by { |p| total_weight(p) }
 
-      if holding.select { |p| total_weight(p) == total_weight(min) }.count == 1
-        unbalanced_above min
-      elsif holding.select { |p| total_weight(p) == total_weight(max) }.count == 1
-        unbalanced_above max
-      else
-        program
-      end
+    if holding.select { |p| total_weight(p) == total_weight(min) }.count == 1
+      find_unbalanced_above min
+    elsif holding.select { |p| total_weight(p) == total_weight(max) }.count == 1
+      find_unbalanced_above max
     else
+      # we found the program!
       program
     end
   end
