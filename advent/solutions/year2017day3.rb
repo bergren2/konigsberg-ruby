@@ -39,7 +39,7 @@ class Year2017Day3
         update_direction
       }
     else # assume part 2
-      while @cart.last <= @input
+      until @cart.last > @input
         a = @cart.surrounding(@x, @y)
         @cart[@x, @y] = a.inject(0, :+)
 
