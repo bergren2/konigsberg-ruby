@@ -1,2 +1,7 @@
-- service: app
+- name: run_tests
+  service: app
   command: bundle exec rake test:all
+- name: coveralls_push
+  service: app
+  command: bundle exec rake coveralls:push
+
