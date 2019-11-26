@@ -5,14 +5,27 @@ task default: "test:all"
 namespace :test do
   Rake::TestTask.new(:all) do |t|
     t.description = "Run all tests"
-    t.libs = %w[test lib advent euler]
+    t.libs = %w[
+      test
+      lib
+      advent
+      advent/2017
+      advent/2018
+      euler
+    ]
     t.warning = true
     t.test_files = FileList["test/**/*_test.rb"]
   end
 
   Rake::TestTask.new(:advent) do |t|
     t.description = "Run Advent of Code tests"
-    t.libs = %w[test lib advent]
+    t.libs = %w[
+      test
+      lib
+      advent
+      advent/2017
+      advent/2018
+    ]
     t.warning = true
     t.test_files = FileList["test/advent/**/*_test.rb"]
   end

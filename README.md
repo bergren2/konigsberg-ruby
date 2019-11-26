@@ -18,7 +18,7 @@ You can run specific sets of problems like this:
 
 If you want to run a specific test, try
 
-    $ rake test:advent TEST=test/advent/year2017day1_test
+    $ rake test:advent TEST=test/advent/2017/year2017day1_test
 
 The workflow for adding new problems is to use TDD with a simplified version of
 the problem and a `nil` placeholder for the site-verifiable version. After using
