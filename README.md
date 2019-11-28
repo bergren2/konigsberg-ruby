@@ -1,5 +1,5 @@
 [![Codeship Status](https://app.codeship.com/projects/dcf43420-e4bf-0137-799a-0ac16517213a/status?branch=master)](https://app.codeship.com/projects/373389)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a8961f8c4c224c90bf8aaa837a7694e0)](https://www.codacy.com/app/basstheorychaos/konigsberg-ruby?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bergren2/konigsberg-ruby&amp;utm_campaign=Badge_Grade)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bergren2_konigsberg-ruby&metric=alert_status)](https://sonarcloud.io/dashboard?id=bergren2_konigsberg-ruby)
 [![codecov](https://codecov.io/gh/bergren2/konigsberg-ruby/branch/master/graph/badge.svg)](https://codecov.io/gh/bergren2/konigsberg-ruby)
 
 # [Königsberg](https://github.com/bergren2/konigsberg) - Ruby
