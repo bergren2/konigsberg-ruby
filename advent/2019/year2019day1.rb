@@ -17,10 +17,31 @@ module Advent
 
     def solution
       sum = 0
-      @nums.each do |n|
-        sum += n / 3 - 2
+      if @part == 1
+        @nums.each do |n|
+          sum += calc_fuel(n)
+        end
+      else # part 2
+        @nums.each do |n|
+          sum += recurse_fuel(n)
+        end
       end
       sum
+    end
+
+    private
+
+    def calc_fuel(mass)
+      mass / 3 - 2
+    end
+
+    def recurse_fuel(mass)
+      amt = calc_fuel(mass)
+      if amt.positive?
+        amt + recurse_fuel(amt)
+      else
+        0
+      end
     end
   end
 end
