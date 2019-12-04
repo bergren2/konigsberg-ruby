@@ -9,10 +9,10 @@ module Advent
 
       sequence_regex = /^([+-]\d+)(,\s+[+-]\d+)*$/
       string_changes = if sequence_regex.match? change_sequence_or_filename
-                        change_sequence_or_filename.split(/,\s+/)
-                      else
-                        File.open(resource_path(change_sequence_or_filename), &:readlines)
-                      end
+                         change_sequence_or_filename.split(/,\s+/)
+                       else
+                         File.open(resource_path(change_sequence_or_filename), &:readlines)
+                       end
       @changes = string_changes.map(&:to_i)
     end
 
