@@ -13,6 +13,7 @@ module Libs
       advent
       advent/2017
       advent/2018
+      advent/2019
     ]
   end
 
