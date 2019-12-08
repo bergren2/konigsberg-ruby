@@ -1,4 +1,5 @@
 require "advent"
+require "intcode"
 
 module Advent
   module Year2019Day2
@@ -20,29 +21,37 @@ module Advent
       end
 
       def solution
-        head = 0
+        Intcode.new(@program).run
+      end
+    end
 
-        while @program[head] != 99
-          op = @program[head]
-          n1 = @program[head + 1]
-          n2 = @program[head + 2]
-          out = @program[head + 3]
+    class Part2
+      include Solvable
 
-          # complete operation
-          case op
-          when 1 # add
-            @program[out] = @program[n1] + @program[n2]
-          when 2 # multiply
-            @program[out] = @program[n1] * @program[n2]
-          else
-            throw "Don't understand op '#{op}'"
+      def initialize(filename, output)
+        @program = File.open(resource_path(filename), &:readline).split(",").map(&:to_i)
+        @output = output
+      end
+
+      def solution
+        # which name and verb give me the output?
+        # create 1202 program alarm
+
+        (0..99).each do |noun|
+          (0..99).each do |verb|
+            copy = Array.new @program
+            copy[1] = noun
+            copy[2] = verb
+
+            begin
+              sol = Intcode.new(copy).run
+              return 100 * noun + verb if sol == @output
+            rescue RuntimeError => e
+              next
+            end
+
           end
-
-          # move head to next location
-          head += 4
         end
-
-        @program[0]
       end
     end
   end

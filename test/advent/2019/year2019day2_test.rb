@@ -13,8 +13,8 @@ class AdventYear2019Day2Test < Minitest::Test
     assert_solution 6568671,  Advent::Year2019Day2::Part1.new("year2019day2.txt")
   end
 
-  # def test_part2
-  #   assert_solution 1202, Advent::Year2019Day2.new(6_568_671, 2)
-  #   assert_solution nil, Advent::Year2019Day2.new(19_690_720, 2)
-  # end
+  def test_part2
+    assert_solution 1202, Advent::Year2019Day2::Part2.new("year2019day2.txt", 6568671)
+    assert_solution 3951, Advent::Year2019Day2::Part2.new("year2019day2.txt", 19690720)
+  end
 end
