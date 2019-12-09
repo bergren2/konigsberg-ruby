@@ -46,8 +46,6 @@ module Advent
             begin
               sol = Intcode.new(copy).run
               return 100 * noun + verb if sol == @output
-            rescue RuntimeError
-              next
             end
           end
         end
