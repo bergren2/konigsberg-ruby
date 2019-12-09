@@ -49,7 +49,6 @@ module Advent
             rescue RuntimeError
               next
             end
-
           end
         end
       end
