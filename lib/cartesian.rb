@@ -6,16 +6,15 @@ class CartesianCoordinateSystem
   end
 
   def [](x, y)
-    if @hash.key? x and @hash[x].key? y
-      @hash[x][y]
+    if @hash.key? [x, y]
+      @hash[[x, y]]
     else
       nil
     end
   end
 
   def []=(x, y, val)
-    @hash[x] = {} unless @hash.key? x
-    @hash[x][y] = val
+    @hash[[x, y]] = val
 
     @last_x = x
     @last_y = y
@@ -44,6 +43,6 @@ class CartesianCoordinateSystem
   end
 
   def values
-    @hash.values.flatten(1).map(&:values).flatten(1)
+    @hash.values
   end
 end
