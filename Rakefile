@@ -11,6 +11,7 @@ module Libs
   def self.advent
     %w[
       advent
+      advent/2015
       advent/2017
       advent/2018
       advent/2019
