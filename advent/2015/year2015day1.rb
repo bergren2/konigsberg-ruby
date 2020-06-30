@@ -16,19 +16,22 @@ module Advent
 
     def solution
       sum = 0
+      basement_index = nil
 
-      @s.split("").each do |c|
+      @s.split("").each_with_index do |c, i|
         if c == "("
           sum += 1
         else
           sum -= 1
         end
+
+        basement_index = i + 1 if sum < 0 and basement_index.nil?
       end
 
       if @part == 1
         sum
       else # assume part 2
-        puts "nope"
+        basement_index
       end
     end
   end
