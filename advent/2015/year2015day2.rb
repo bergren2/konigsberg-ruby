@@ -1,7 +1,7 @@
 require "advent"
 
 module Advent
-  class Year2015Day1
+  class Year2015Day2
     include Solvable
 
     def initialize filename_or_string, part
