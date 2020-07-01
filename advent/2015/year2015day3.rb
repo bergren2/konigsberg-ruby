@@ -19,30 +19,55 @@ module Advent
     def solution
       x = 0
       y = 0
-      @cart[x, y] = 1
+      robo_x = 0
+      robo_y = 0
+
+      @cart[0, 0] = 1
+
+      robo_turn = false
 
       @s.each do |instruction|
         instruction.split("").each do |dir|
           case dir
           when "^"
-            y += 1
+            if robo_turn
+              robo_y += 1
+            else
+              y += 1
+            end
           when "<"
-            x -= 1
+            if robo_turn
+              robo_x -= 1
+            else
+              x -= 1
+            end
           when "v"
-            y -= 1
+            if robo_turn
+              robo_y -= 1
+            else
+              y -= 1
+            end
           when ">"
-            x += 1
+            if robo_turn
+              robo_x += 1
+            else
+              x += 1
+            end
           end
 
-          @cart[x, y] = 1
+          if robo_turn
+            @cart[robo_x, robo_y] = 1
+          else
+            @cart[x, y] = 1
+          end
+
+          if @part == 2
+            robo_turn = !robo_turn
+          end
         end
       end
 
-      if @part == 1
-        @cart.values.sum
-      else # assume part 2
-        # yo
-      end
+      @cart.values.sum
     end
   end
 end

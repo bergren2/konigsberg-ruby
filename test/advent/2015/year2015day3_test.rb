@@ -12,6 +12,9 @@ class AdventYear2015Day3Test < Minitest::Test
   end
 
   def test_part2
-    #
+    assert_solution 3, Advent::Year2015Day3.new("^v", 2)
+    assert_solution 3, Advent::Year2015Day3.new("^>v<", 2)
+    assert_solution 11, Advent::Year2015Day3.new("^v^v^v^v^v", 2)
+    assert_solution 2360, Advent::Year2015Day3.new("year2015day3.txt", 2)
   end
 end
