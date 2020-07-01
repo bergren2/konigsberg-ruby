@@ -7,9 +7,9 @@ module Advent
 
     def initialize filename_or_string, part
       if filename_or_string.end_with? ".txt"
-        @s = File.readlines(resource_path(filename_or_string)).map { |l| l.strip }
+        @s = File.open(resource_path(filename_or_string), &:readline).strip
       else # assumes string
-        @s = [filename_or_string]
+        @s = filename_or_string
       end
 
       @cart = CartesianCoordinateSystem.new
@@ -26,44 +26,42 @@ module Advent
 
       robo_turn = false
 
-      @s.each do |instruction|
-        instruction.split("").each do |dir|
-          case dir
-          when "^"
-            if robo_turn
-              robo_y += 1
-            else
-              y += 1
-            end
-          when "<"
-            if robo_turn
-              robo_x -= 1
-            else
-              x -= 1
-            end
-          when "v"
-            if robo_turn
-              robo_y -= 1
-            else
-              y -= 1
-            end
-          when ">"
-            if robo_turn
-              robo_x += 1
-            else
-              x += 1
-            end
-          end
-
+      @s.split("").each do |dir|
+        case dir
+        when "^"
           if robo_turn
-            @cart[robo_x, robo_y] = 1
+            robo_y += 1
           else
-            @cart[x, y] = 1
+            y += 1
           end
+        when "<"
+          if robo_turn
+            robo_x -= 1
+          else
+            x -= 1
+          end
+        when "v"
+          if robo_turn
+            robo_y -= 1
+          else
+            y -= 1
+          end
+        when ">"
+          if robo_turn
+            robo_x += 1
+          else
+            x += 1
+          end
+        end
 
-          if @part == 2
-            robo_turn = !robo_turn
-          end
+        if robo_turn
+          @cart[robo_x, robo_y] = 1
+        else
+          @cart[x, y] = 1
+        end
+
+        if @part == 2
+          robo_turn = !robo_turn
         end
       end
 
