@@ -2,7 +2,8 @@
 
 source "https://rubygems.org"
 
-gem "codecov", require: false
+gem "simplecov", "~>0.17.1", require: false
 gem "minitest"
 gem "rake"
 gem "solargraph" # VS Code Ruby magic (ﾉ◕ヮ◕)ﾉ*:・ﾟ✧
+gem "cmath", "~> 1.0"
