@@ -1,6 +1,6 @@
-[![Codeship Status](https://app.codeship.com/projects/dcf43420-e4bf-0137-799a-0ac16517213a/status?branch=master)](https://app.codeship.com/projects/373389)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bergren2_konigsberg-ruby&metric=alert_status)](https://sonarcloud.io/dashboard?id=bergren2_konigsberg-ruby)
-[![codecov](https://codecov.io/gh/bergren2/konigsberg-ruby/branch/master/graph/badge.svg)](https://codecov.io/gh/bergren2/konigsberg-ruby)
+![Build Status](https://github.com/bergren2/konigsberg-ruby/workflows/workflow/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/599410792e9ca585f432/maintainability)](https://codeclimate.com/github/bergren2/konigsberg-ruby/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/599410792e9ca585f432/test_coverage)](https://codeclimate.com/github/bergren2/konigsberg-ruby/test_coverage)
 
 # [Königsberg](https://github.com/bergren2/konigsberg) - Ruby
 
