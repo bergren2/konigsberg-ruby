@@ -10,12 +10,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby
+      
+    - name: Set up Ruby & bundle install
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.6.5
-    - name: Install dependencies
-      run: bundle install
+        ruby-version: .ruby-version
+        bundler-cache: true
     - name: Run tests 
       uses: paambaati/codeclimate-action@v2.6.0
       env:
