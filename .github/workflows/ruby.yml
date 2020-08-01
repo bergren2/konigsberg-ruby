@@ -30,4 +30,6 @@ jobs:
     - name: Install dependencies
       run: bundle install
     - name: Run tests
-      run: bundle exec rake
+      uses: paambaati/codeclimate-action@v2.6.0
+      with:
+        coverageCommand: bundle exec rake test:all
