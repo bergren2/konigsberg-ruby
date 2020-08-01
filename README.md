@@ -1,4 +1,4 @@
-![Build Status](https://github.com/bergren2/konigsberg-ruby/workflows/Ruby/badge.svg)
+![Build Status](https://github.com/bergren2/konigsberg-ruby/workflows/workflow/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/599410792e9ca585f432/maintainability)](https://codeclimate.com/github/bergren2/konigsberg-ruby/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/599410792e9ca585f432/test_coverage)](https://codeclimate.com/github/bergren2/konigsberg-ruby/test_coverage)
 
