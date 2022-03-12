@@ -1,0 +1,23 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "09:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: minitest
+    versions:
+    - 5.14.2
+    - 5.14.3
+  - dependency-name: solargraph
+    versions:
+    - 0.40.1
+    - 0.40.2
+  - dependency-name: nokogiri
+    versions:
+    - 1.11.0
+  - dependency-name: simplecov
+    versions:
+    - 0.20.0
